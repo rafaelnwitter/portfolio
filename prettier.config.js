@@ -1,11 +1,11 @@
 const options = {
-    arrowParens: 'avoid',
-    singleQuote: true,
-    bracketSpacing: true,
-    endOfLine: 'lf',
-    semi: false,
-    tabWidth: 4,
-    trailingComma: 'none'
+  arrowParens: 'avoid',
+  singleQuote: true,
+  bracketSpacing: true,
+  endOfLine: 'lf',
+  semi: false,
+  tabWidth: 2,
+  trailingComma: 'none'
 }
 
-export default options
+module.exports = options
