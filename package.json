@@ -5,35 +5,29 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "prettier": "prettier -write .",
+    "start": "next start",
+    "prettier": "prettier --write .",
     "lint": "next lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rafaelnwitter/portfolio.git"
   },
   "keywords": [],
   "author": "Rafael Witt<rafawitt@hotmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rafaelnwitter/portfolio/issues"
-  },
-  "homepage": "https://github.com/rafaelnwitter/portfolio#readme",
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.16",
-    "@chakra-ui/react": "^1.6.10",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "framer-motion": "^4.1.17",
-    "next": "^11.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "three": "^0.134.0"
+    "@chakra-ui/icons": "^2.0.8",
+    "@chakra-ui/react": "^2.2.8",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "framer-motion": "^7.2.0",
+    "next": "^12.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "sharp": "^0.31.0",
+    "three": "^0.143.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.2",
-    "prettier": "^2.4.1"
+    "eslint": "^8.22.0",
+    "eslint-config-next": "^12.2.5",
+    "prettier": "^2.7.1"
   }
 }
