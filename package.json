@@ -4,7 +4,7 @@
   "description": "Rafael's portfolio",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "prettier": "prettier --write .",
     "lint": "next lint"
