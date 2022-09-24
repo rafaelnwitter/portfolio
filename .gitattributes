@@ -1,3 +1,2 @@
-*.glb filter=lfs diff=lfs merge=lfs -text
-public/*.glb filter=lfs diff=lfs merge=lfs -text
-public/** filter=lfs diff=lfs merge=lfs -text
+public/noki_noki.glb filter=lfs diff=lfs merge=lfs -text
+public/favicon.ico filter=lfs diff=lfs merge=lfs -text
