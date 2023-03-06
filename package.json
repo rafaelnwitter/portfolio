@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Rafael's portfolio",
+  "homepage": "https://portfolio-rafaelnwitt.vercel.app",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build && next export",
