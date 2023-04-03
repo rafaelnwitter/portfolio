@@ -2707,9 +2707,9 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"
 
-three@^0.143.0:
-  version "0.143.0"
-  resolved "https://registry.npmjs.org/three/-/three-0.143.0.tgz"
+three@^0.151.3:
+  version "0.151.3"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.151.3.tgz#0b3c7de4b070d5b66b15217f42465d67cbfa6004"
 
 tiny-invariant@^1.0.6:
   version "1.2.0"
