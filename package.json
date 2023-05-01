@@ -24,7 +24,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "sharp": "^0.31.0",
-    "three": "^0.143.0"
+    "three": "^0.152.2"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
