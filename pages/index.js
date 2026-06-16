@@ -1,4 +1,3 @@
-import NextLink from 'next/link'
 import {
   Link,
   Container,
@@ -7,16 +6,19 @@ import {
   Button,
   List,
   ListItem,
+  SimpleGrid,
   useColorModeValue,
   chakra
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import Image from 'next/image'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear, BioSec, BioSpec } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
+import WorkCard from '../components/work-card'
+import works from '../lib/works'
 import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
-import Image from 'next/image'
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -26,6 +28,8 @@ const Home = () => (
   <Layout>
     <Container>
       <Box
+        id="about"
+        className="scroll-section"
         borderRadius="lg"
         mb={6}
         p={3}
@@ -33,7 +37,8 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Whats up, I&apos;m an backend developer and experimental frontend from Brazil!
+        Hey, I&apos;m a backend developer and experimental front-end tinkerer
+        from Brazil!
       </Box>
 
       <Box display={{ md: 'flex' }}>
@@ -72,107 +77,151 @@ const Home = () => (
 
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
-          Work
+          Intro
         </Heading>
         <Paragraph>
-          As a Back-End Developer Junior with 1 year of development
-
+          I&apos;m a back-end developer with hands-on experience building APIs,
+          event-driven services and data-heavy applications across the Python
+          and Node.js ecosystems. I enjoy turning messy requirements into clean,
+          reliable systems &mdash; and occasionally jumping to the front-end to
+          see ideas come to life.
         </Paragraph>
         <Box align="center" my={4}>
-          <NextLink href="/works" passHref scroll={false}>
-            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-              My portfolio
-            </Button>
-          </NextLink>
+          <Button
+            as={Link}
+            href="#works"
+            rightIcon={<ChevronRightIcon />}
+            colorScheme="teal"
+            _hover={{ textDecoration: 'none' }}
+          >
+            See my work
+          </Button>
         </Box>
       </Section>
 
       <Section delay={0.2}>
-        <Heading as="h3" variant="section-title">
-          Bio
-        </Heading>
-        <BioSection>
-          <BioYear>1999</BioYear>
-          Born in Itaiopolis (SC), Brazil
-        </BioSection><br />
-        <BioSection>
-          <BioYear>2018</BioYear>
-          Initiate the Information Systems Undergraduate&apos;s program at University Federal of Santa Catarina
-        </BioSection><br />
-        <BioSection>
-          <BioYear>03/2020-05/2020</BioYear> 
-          <BioSec>Technical Support Internship at Nexxera</BioSec> <br />
+        <Box id="works" className="scroll-section">
+          <Heading as="h3" variant="section-title">
+            Works
+          </Heading>
+          <Paragraph>
+            A selection of projects from my professional journey. Open any card
+            to read a deeper summary and browse photos and videos.
+          </Paragraph>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mt={5}>
+            {works.map(work => (
+              <WorkCard key={work.id} work={work} />
+            ))}
+          </SimpleGrid>
+        </Box>
+      </Section>
+
+      <Section delay={0.3}>
+        <Box id="bio" className="scroll-section">
+          <Heading as="h3" variant="section-title">
+            Bio
+          </Heading>
+          <BioSection>
+            <BioYear>1999</BioYear>
+            Born in Itaiopolis (SC), Brazil
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2018</BioYear>
+            Started the Information Systems undergraduate program at the Federal
+            University of Santa Catarina
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2020</BioYear>
+            <BioSec>Technical Support Intern at Nexxera</BioSec> <br />
             <BioSpec>Worked with: Jira, Bash, SQL</BioSpec>
-        </BioSection><br />
-        <BioSection>
-          <BioYear>03/2021-06/2021</BioYear>
-          <BioSec>Fullstack developer internship at Publya</BioSec> <br />
-            <BioSpec>Worked with: Flask, HTML templates, CSS, JavaScript, PostgreSQL</BioSpec>
-        </BioSection><br />
-        <BioSection>
-          <BioYear>06/2021-10/2021</BioYear>
-          <BioSec>Fullstack developer jr at Expertise Solutions</BioSec> <br />
-            <BioSpec>Worked with: NodeJS, NestJS, Typescript, React, GraphQL, PostgreSQL, Kafka, TypeORM, Docker</BioSpec>
-        </BioSection><br />
-        <BioSection>
-          <BioYear>01/2022-09/2022</BioYear>
-          <BioSec>Backend developer at Keeps</BioSec> <br />
-            <BioSpec>Worked with: Django, Flask, Python3, Jinja, Sqlalchemy, PostgreSQL, Docker, Pytest</BioSpec>
-        </BioSection><br />
-        <BioSection>
-          <BioYear>Studying</BioYear>
-          NodeJS and NestJS (Typescript) for backend development
-        </BioSection>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2021</BioYear>
+            <BioSec>Full-stack Developer Intern at Publya</BioSec> <br />
+            <BioSpec>
+              Worked with: Flask, HTML templates, CSS, JavaScript, PostgreSQL
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2021</BioYear>
+            <BioSec>Full-stack Developer Jr. at Expertise Solutions</BioSec>{' '}
+            <br />
+            <BioSpec>
+              Worked with: NodeJS, NestJS, TypeScript, React, GraphQL,
+              PostgreSQL, Kafka, TypeORM, Docker
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2022</BioYear>
+            <BioSec>Backend Developer at Keeps</BioSec> <br />
+            <BioSpec>
+              Worked with: Django, Flask, Python 3, Jinja, SQLAlchemy,
+              PostgreSQL, Docker, Pytest
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>Now</BioYear>
+            Deepening Node.js and NestJS (TypeScript) for backend development
+          </BioSection>
+        </Box>
       </Section>
 
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          I ♥
+          I love
         </Heading>
         <Paragraph>
-          Playing, Drawing, Playing Guitar, Skateboarding, Cybersecurity
+          Gaming, Drawing, Playing Guitar, Skateboarding, Cybersecurity
         </Paragraph>
       </Section>
 
       <Section delay={0.3}>
-        <Heading as="h3" variant="section-title">
-          On the web
-        </Heading>
-        <List>
-          <ListItem>
-            <Link href="https://github.com/rafaelnwitter" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoGithub />}
-              >
-                @rafaelnwitter
-              </Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://linkedin.com/in/rafaelnwitt" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoLinkedin />}
-              >
-                @rafaelnwitt
-              </Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://instagram.com/r_witt" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoInstagram />}
-              >
-                @r_witt
-              </Button>
-            </Link>
-          </ListItem>
-        </List>
+        <Box id="contact" className="scroll-section">
+          <Heading as="h3" variant="section-title">
+            On the web
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href="https://github.com/rafaelnwitter" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoGithub />}
+                >
+                  @rafaelnwitter
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://linkedin.com/in/rafaelnwitt" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoLinkedin />}
+                >
+                  @rafaelnwitt
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://instagram.com/r_witt" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoInstagram />}
+                >
+                  @r_witt
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
+        </Box>
       </Section>
     </Container>
   </Layout>
