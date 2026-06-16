@@ -56,21 +56,22 @@ const useScrollSpy = enabled => {
 
 const NavLink = ({ href, active, children, ...props }) => {
   const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+  const hoverBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.200')
   return (
-    <NextLink href={href} passHref>
-      <Link
-        px={3}
-        py={1}
-        borderRadius="md"
-        fontWeight={active ? 'semibold' : 'normal'}
-        bg={active ? 'grassTeal' : undefined}
-        color={active ? '#202023' : inactiveColor}
-        _hover={{ bg: active ? 'grassTeal' : useColorModeValue('blackAlpha.100', 'whiteAlpha.200') }}
-        {...props}
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <Link
+      as={NextLink}
+      href={href}
+      px={3}
+      py={1}
+      borderRadius="md"
+      fontWeight={active ? 'semibold' : 'normal'}
+      bg={active ? 'grassTeal' : undefined}
+      color={active ? '#202023' : inactiveColor}
+      _hover={{ bg: active ? 'grassTeal' : hoverBg }}
+      {...props}
+    >
+      {children}
+    </Link>
   )
 }
 
@@ -148,9 +149,9 @@ const Navbar = props => {
               />
               <MenuList>
                 {SECTIONS.map(({ id, label }) => (
-                  <NextLink key={id} href={`/#${id}`} passHref>
-                    <MenuItem as={Link}>{label}</MenuItem>
-                  </NextLink>
+                  <MenuItem key={id} as={NextLink} href={`/#${id}`}>
+                    {label}
+                  </MenuItem>
                 ))}
                 <MenuItem
                   as={Link}

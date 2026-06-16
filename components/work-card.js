@@ -54,13 +54,11 @@ const WorkCard = ({ work }) => {
           </Badge>
         </Stack>
 
-        <NextLink href={`/works/${work.id}`} passHref scroll={false}>
-          <LinkOverlay>
-            <Text as="h4" fontWeight="bold" fontSize={18} lineHeight="short">
-              {work.title}
-            </Text>
-          </LinkOverlay>
-        </NextLink>
+        <LinkOverlay as={NextLink} href={`/works/${work.id}`} scroll={false}>
+          <Text as="h4" fontWeight="bold" fontSize={18} lineHeight="short">
+            {work.title}
+          </Text>
+        </LinkOverlay>
 
         <Text mt={2} fontSize={14} color={metaColor} noOfLines={3}>
           {work.summary}

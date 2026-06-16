@@ -27,6 +27,7 @@ import works, { getWork } from '../../lib/works'
 const VideoPlaceholder = () => {
   const bg = useColorModeValue('blackAlpha.100', 'whiteAlpha.100')
   const color = useColorModeValue('gray.600', 'gray.400')
+  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300')
   return (
     <AspectRatio ratio={16 / 9} my={4}>
       <Flex
@@ -37,7 +38,7 @@ const VideoPlaceholder = () => {
         borderRadius="lg"
         borderWidth={1}
         borderStyle="dashed"
-        borderColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.300')}
+        borderColor={borderColor}
         color={color}
       >
         <Icon as={IoPlayCircleOutline} boxSize={12} mb={2} />
@@ -49,6 +50,7 @@ const VideoPlaceholder = () => {
 
 const WorkDetail = ({ work }) => {
   const headerBg = useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')
+  const backLinkColor = useColorModeValue('#3d7aed', '#ff63c3')
 
   if (!work) return null
 
@@ -57,9 +59,9 @@ const WorkDetail = ({ work }) => {
       <Container>
         {/* Breadcrumb */}
         <Box mb={4}>
-          <NextLink href="/#works" passHref>
-            <Link>Works</Link>
-          </NextLink>
+          <Link as={NextLink} href="/#works">
+            Works
+          </Link>
           <ChevronRightIcon mx={1} />
           <Text as="span">{work.title}</Text>
         </Box>
@@ -168,14 +170,14 @@ const WorkDetail = ({ work }) => {
         </Section>
 
         <Box align="center" my={8}>
-          <NextLink href="/#works" passHref>
-            <Link
-              color={useColorModeValue('#3d7aed', '#ff63c3')}
-              fontWeight="semibold"
-            >
-              &larr; Back to all works
-            </Link>
-          </NextLink>
+          <Link
+            as={NextLink}
+            href="/#works"
+            color={backLinkColor}
+            fontWeight="semibold"
+          >
+            &larr; Back to all works
+          </Link>
         </Box>
       </Container>
     </Layout>

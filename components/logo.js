@@ -24,19 +24,17 @@ const LogoBox = styled.span`
 const Logo = () => {
   return (
     <Link href="/" scroll={false}>
-      <a>
-        <LogoBox>
-          <FootprintIcon />
-          <Text
-            color={useColorModeValue('gray.850', 'whiteAlpha.960')}
-            fontFamily='M PLUS Rounded 1c", sans-serif'
-            fontWeight="bold"
-            ml={3}
-          >
-            Rafael Witt
-          </Text>
-        </LogoBox>
-      </a>
+      <LogoBox>
+        <FootprintIcon />
+        <Text
+          color={useColorModeValue('gray.850', 'whiteAlpha.960')}
+          fontFamily='M PLUS Rounded 1c", sans-serif'
+          fontWeight="bold"
+          ml={3}
+        >
+          Rafael Witt
+        </Text>
+      </LogoBox>
     </Link>
   )
 }
