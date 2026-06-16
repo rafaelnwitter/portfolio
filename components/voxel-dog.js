@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { Box } from '@chakra-ui/react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from '../lib/model'
@@ -11,6 +12,7 @@ function easeOutCirc(x) {
 const VoxelDog = () => {
   const refContainer = useRef()
   const [loading, setLoading] = useState(true)
+  const [failed, setFailed] = useState(false)
   const refRenderer = useRef()
 
   const handleWindowResize = useCallback(() => {
@@ -70,13 +72,33 @@ const VoxelDog = () => {
       controls.autoRotate = true
       controls.target = target
 
-      loadGLTFModel(scene, '/noki_noki.glb', {
-        receiveShadow: false,
-        castShadow: false
-      }).then(() => {
-        animate()
-        setLoading(false)
-      })
+      // Verify the asset is a real binary GLB before handing it to three's
+      // parser. A Git LFS pointer (or any non-GLB) would otherwise throw a
+      // synchronous JSON parse error that crashes the page.
+      const loadModel = async () => {
+        try {
+          const res = await fetch('/noki_noki.glb')
+          const buf = await res.arrayBuffer()
+          const magic = String.fromCharCode(
+            ...new Uint8Array(buf.slice(0, 4))
+          )
+          if (magic !== 'glTF') {
+            throw new Error(`Not a valid GLB file (magic="${magic}")`)
+          }
+          await loadGLTFModel(scene, '/noki_noki.glb', {
+            receiveShadow: false,
+            castShadow: false
+          })
+          animate()
+          setLoading(false)
+        } catch (err) {
+          // Fail gracefully instead of crashing the whole page.
+          console.log('[v0] Voxel model unavailable:', err?.message || err)
+          setLoading(false)
+          setFailed(true)
+        }
+      }
+      loadModel()
 
       let req = null
       let frame = 0
@@ -116,6 +138,9 @@ const VoxelDog = () => {
       window.removeEventListener('resize', handleWindowResize, false)
     }
   }, [handleWindowResize])
+
+  // If the model can't load, collapse the area so the layout stays clean.
+  if (failed) return <Box h={4} />
 
   return (
     <DogContainer ref={refContainer}>{loading && <DogSpinner />}</DogContainer>

@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react'
 import Logo from './logo'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 import {
   Container,
   Box,
@@ -14,20 +16,56 @@ import {
   IconButton,
   useColorModeValue
 } from '@chakra-ui/react'
-import { SpinnerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import { IoLogoGithub } from 'react-icons/io5'
 
-const LinkItem = ({ href, path, target, children, ...props }) => {
-  const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+const SECTIONS = [
+  { id: 'about', label: 'About' },
+  { id: 'works', label: 'Works' },
+  { id: 'bio', label: 'Bio' },
+  { id: 'contact', label: 'Contact' }
+]
+
+// Tracks which section is currently in view for the active highlight.
+const useScrollSpy = enabled => {
+  const [active, setActive] = useState('about')
+
+  useEffect(() => {
+    if (!enabled || typeof window === 'undefined') return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    )
+
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [enabled])
+
+  return active
+}
+
+const NavLink = ({ href, active, children, ...props }) => {
+  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
   return (
-    <NextLink href={href} passHref scroll={false}>
+    <NextLink href={href} passHref>
       <Link
-        p={2}
+        px={3}
+        py={1}
+        borderRadius="md"
+        fontWeight={active ? 'semibold' : 'normal'}
         bg={active ? 'grassTeal' : undefined}
         color={active ? '#202023' : inactiveColor}
-        target={target}
+        _hover={{ bg: active ? 'grassTeal' : useColorModeValue('blackAlpha.100', 'whiteAlpha.200') }}
         {...props}
       >
         {children}
@@ -37,7 +75,9 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
 }
 
 const Navbar = props => {
-  const { path } = props
+  const router = useRouter()
+  const isHome = router.pathname === '/'
+  const active = useScrollSpy(isHome)
 
   return (
     <Box
@@ -70,45 +110,52 @@ const Navbar = props => {
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
+          spacing={1}
         >
-          <LinkItem href="/works" path={path}>
-            Works
-          </LinkItem>
-          <LinkItem
-            target="_blank"
+          {SECTIONS.map(({ id, label }) => (
+            <NavLink
+              key={id}
+              href={`/#${id}`}
+              active={isHome && active === id}
+            >
+              {label}
+            </NavLink>
+          ))}
+          <Link
             href="https://github.com/rafaelnwitter/portfolio"
-            path={path}
+            target="_blank"
+            px={3}
+            py={1}
             display="inline-flex"
             alignItems="center"
             style={{ gap: 4 }}
-            pl={2}
           >
             <IoLogoGithub />
             Source
-          </LinkItem>
+          </Link>
         </Stack>
 
-        <Box flex={1} align="right">
+        <Box flex={1} textAlign="right">
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu">
               <MenuButton
                 as={IconButton}
-                icon={<SpinnerIcon />}
+                icon={<HamburgerIcon />}
                 variant="outline"
-                aria-label="Options"
+                aria-label="Open menu"
               />
               <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
-                </NextLink>
-                <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
-                </NextLink>
+                {SECTIONS.map(({ id, label }) => (
+                  <NextLink key={id} href={`/#${id}`} passHref>
+                    <MenuItem as={Link}>{label}</MenuItem>
+                  </NextLink>
+                ))}
                 <MenuItem
                   as={Link}
                   href="https://github.com/rafaelnwitter/portfolio"
+                  target="_blank"
                 >
                   View Source
                 </MenuItem>
