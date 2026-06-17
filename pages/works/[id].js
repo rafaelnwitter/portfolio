@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 import {
   Container,
   Badge,
+  Button,
   Box,
   Link,
   List,
@@ -16,7 +17,7 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import { ChevronRightIcon } from '@chakra-ui/icons'
+import { ChevronRightIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import { IoPlayCircleOutline } from 'react-icons/io5'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
@@ -53,6 +54,13 @@ const WorkDetail = ({ work }) => {
   const backLinkColor = useColorModeValue('#3d7aed', '#ff63c3')
 
   if (!work) return null
+
+  const projectLinks = [
+    ...(work.repository
+      ? [{ label: 'Repository', href: work.repository }]
+      : []),
+    ...work.links
+  ]
 
   return (
     <Layout title={work.title}>
@@ -132,6 +140,29 @@ const WorkDetail = ({ work }) => {
             ))}
           </Stack>
         </Section>
+
+        {projectLinks.length > 0 && (
+          <Section delay={0.4}>
+            <Heading as="h3" variant="section-title">
+              Links
+            </Heading>
+            <Stack direction="row" wrap="wrap" spacing={2} mt={2}>
+              {projectLinks.map(link => (
+                <Button
+                  key={link.href}
+                  as={Link}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  size="sm"
+                  rightIcon={<ExternalLinkIcon />}
+                >
+                  {link.label}
+                </Button>
+              ))}
+            </Stack>
+          </Section>
+        )}
 
         <Section delay={0.4}>
           <Heading as="h3" variant="section-title">

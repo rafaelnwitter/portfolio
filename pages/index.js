@@ -17,7 +17,7 @@ import { BioSection, BioYear, BioSec, BioSpec } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import WorkCard from '../components/work-card'
-import works from '../lib/works'
+import { featuredWorks as works } from '../lib/works'
 import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 
 const ProfileImage = chakra(Image, {
