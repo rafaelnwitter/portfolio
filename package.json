@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "prettier": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "validate:projects": "node scripts/validate-project-data.mjs"
   },
   "keywords": [],
   "author": "Rafael Witt<rafawitt@hotmail.com>",

@@ -1,0 +1,159 @@
+[
+  {
+    "id": "expertise",
+    "title": "Cloud Integration Platform",
+    "category": "Professional Case Study",
+    "company": "Expertise Solutions",
+    "role": "Full-stack Developer Jr.",
+    "period": "2021",
+    "status": "case-study",
+    "featured": true,
+    "source": "professional",
+    "repository": null,
+    "links": [],
+    "summary": "Event-driven integration platform connecting enterprise systems through GraphQL APIs and Kafka streams.",
+    "description": [
+      "At Expertise Solutions I worked across the stack on a platform that integrated several enterprise systems. The backend exposed a GraphQL API powered by NestJS and TypeScript, while data flowed asynchronously between services through Kafka topics.",
+      "I implemented resolvers, background consumers and database access with TypeORM and PostgreSQL, and helped ship a React front-end that consumed the API. Everything ran in Docker, which made local development and deployments predictable."
+    ],
+    "highlights": [
+      "Built GraphQL resolvers and Kafka consumers for asynchronous workflows",
+      "Modeled and queried relational data with TypeORM + PostgreSQL",
+      "Containerized services with Docker for consistent environments"
+    ],
+    "stack": [
+      "NodeJS",
+      "NestJS",
+      "TypeScript",
+      "React",
+      "GraphQL",
+      "PostgreSQL",
+      "Kafka",
+      "TypeORM",
+      "Docker"
+    ],
+    "media": {
+      "thumbnail": "/images/works/expertise_cover.png",
+      "gallery": [
+        "/images/works/expertise_shot.png",
+        "/images/works/expertise_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "keeps",
+    "title": "Corporate Learning Platform",
+    "category": "Professional Case Study",
+    "company": "Keeps",
+    "role": "Backend Developer",
+    "period": "2022",
+    "status": "case-study",
+    "featured": true,
+    "source": "professional",
+    "repository": null,
+    "links": [],
+    "summary": "Backend for a corporate e-learning product serving courses, progress tracking and analytics.",
+    "description": [
+      "At Keeps I focused on the backend of a corporate learning platform built with Django and Flask. I designed and maintained data models with SQLAlchemy on top of PostgreSQL, and built endpoints that powered course delivery and student progress tracking.",
+      "Quality was a priority: I wrote automated tests with Pytest and kept the services containerized with Docker so the team could iterate safely and quickly."
+    ],
+    "highlights": [
+      "Designed PostgreSQL schemas and queries with SQLAlchemy",
+      "Built course and progress-tracking endpoints in Django and Flask",
+      "Wrote Pytest suites to keep the backend reliable"
+    ],
+    "stack": [
+      "Django",
+      "Flask",
+      "Python 3",
+      "Jinja",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "Pytest",
+      "Docker"
+    ],
+    "media": {
+      "thumbnail": "/images/works/keeps_cover.png",
+      "gallery": [
+        "/images/works/keeps_shot.png",
+        "/images/works/keeps_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "publya",
+    "title": "Ad Management Web App",
+    "category": "Professional Case Study",
+    "company": "Publya",
+    "role": "Full-stack Developer Intern",
+    "period": "2021",
+    "status": "case-study",
+    "featured": true,
+    "source": "professional",
+    "repository": null,
+    "links": [],
+    "summary": "Server-rendered web application to manage advertising campaigns and budgets.",
+    "description": [
+      "My first professional development role was at Publya, where I built a full-stack web application with Flask and server-rendered HTML templates. I worked on both the Python backend and the JavaScript/CSS front-end.",
+      "The app let users manage advertising campaigns backed by a PostgreSQL database. This is where I learned how a real product comes together from request handling all the way to the rendered page."
+    ],
+    "highlights": [
+      "Built features end to end with Flask and HTML templates",
+      "Persisted campaign data in PostgreSQL",
+      "Added interactivity with vanilla JavaScript and CSS"
+    ],
+    "stack": [
+      "Flask",
+      "HTML Templates",
+      "CSS",
+      "JavaScript",
+      "PostgreSQL"
+    ],
+    "media": {
+      "thumbnail": "/images/works/publya_cover.png",
+      "gallery": [
+        "/images/works/publya_shot.png",
+        "/images/works/publya_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "nexxera",
+    "title": "Financial Support Tooling",
+    "category": "Professional Case Study",
+    "company": "Nexxera",
+    "role": "Technical Support Intern",
+    "period": "2020",
+    "status": "case-study",
+    "featured": true,
+    "source": "professional",
+    "repository": null,
+    "links": [],
+    "summary": "Support and automation for financial messaging systems using SQL and shell scripting.",
+    "description": [
+      "My first contact with the industry was a technical support internship at Nexxera, a company in the financial messaging space. I investigated and resolved issues, ran SQL queries to diagnose data problems, and automated repetitive tasks with Bash.",
+      "I tracked everything through Jira, which gave me an early appreciation for clear communication and reproducible problem solving."
+    ],
+    "highlights": [
+      "Diagnosed production issues with targeted SQL queries",
+      "Automated recurring tasks with Bash scripts",
+      "Managed and documented tickets in Jira"
+    ],
+    "stack": [
+      "Bash",
+      "SQL",
+      "Jira"
+    ],
+    "media": {
+      "thumbnail": "/images/works/nexxera_cover.png",
+      "gallery": [
+        "/images/works/nexxera_shot.png",
+        "/images/works/nexxera_cover.png"
+      ],
+      "video": null
+    }
+  }
+]
