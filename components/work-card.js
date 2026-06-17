@@ -14,6 +14,7 @@ const WorkCard = ({ work }) => {
   const cardBg = useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
   const metaColor = useColorModeValue('gray.600', 'gray.400')
+  const roleColor = useColorModeValue('gray.700', 'gray.300')
 
   return (
     <LinkBox
@@ -40,18 +41,39 @@ const WorkCard = ({ work }) => {
 
       <Box p={4}>
         <Stack
-          direction="row"
-          align="center"
+          direction={{ base: 'column', sm: 'row' }}
+          align="flex-start"
           justify="space-between"
-          mb={1}
+          mb={2}
           spacing={2}
         >
-          <Text fontSize={12} color={metaColor} noOfLines={1}>
-            {work.company}
-          </Text>
-          <Badge colorScheme="teal" fontSize="0.65em">
-            {work.period}
-          </Badge>
+          <Box minW={0}>
+            <Text fontSize={12} color={metaColor} noOfLines={1}>
+              {work.company}
+            </Text>
+            <Text
+              fontSize={12}
+              color={roleColor}
+              fontWeight="medium"
+              noOfLines={1}
+            >
+              {work.role}
+            </Text>
+          </Box>
+          <Stack
+            direction="row"
+            spacing={1}
+            flexShrink={0}
+            wrap="wrap"
+            justify={{ base: 'flex-start', sm: 'flex-end' }}
+          >
+            <Badge colorScheme="gray" fontSize="0.65em">
+              {work.category}
+            </Badge>
+            <Badge colorScheme="teal" fontSize="0.65em">
+              {work.period}
+            </Badge>
+          </Stack>
         </Stack>
 
         <LinkOverlay as={NextLink} href={`/works/${work.id}`} scroll={false}>
@@ -63,10 +85,18 @@ const WorkCard = ({ work }) => {
         <Text mt={2} fontSize={14} color={metaColor} noOfLines={3}>
           {work.summary}
         </Text>
+        <Text mt={3} fontSize={13} fontWeight="semibold" color="teal.400">
+          Read technical case study
+        </Text>
 
         <Stack direction="row" mt={3} wrap="wrap" spacing={0} gap={1}>
           {work.stack.slice(0, 4).map(tech => (
-            <Badge key={tech} variant="subtle" colorScheme="gray" fontSize="0.65em">
+            <Badge
+              key={tech}
+              variant="subtle"
+              colorScheme="gray"
+              fontSize="0.65em"
+            >
               {tech}
             </Badge>
           ))}
