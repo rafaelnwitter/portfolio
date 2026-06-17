@@ -68,6 +68,20 @@ projects.forEach(project => {
     errors.push(`${project.id}: stack must have at least one item`)
   }
 
+  if (!Array.isArray(project.links)) {
+    errors.push(`${project.id}: links must be an array`)
+  } else {
+    project.links.forEach((link, index) => {
+      if (!isNonEmptyString(link.label)) {
+        errors.push(`${project.id}: links[${index}].label is required`)
+      }
+
+      if (!isNonEmptyString(link.href)) {
+        errors.push(`${project.id}: links[${index}].href is required`)
+      }
+    })
+  }
+
   if (!project.media) {
     errors.push(`${project.id}: missing media object`)
     return

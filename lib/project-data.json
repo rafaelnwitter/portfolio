@@ -1,5 +1,220 @@
 [
   {
+    "id": "sales-dash",
+    "title": "ShopFusion Sales Dashboard",
+    "category": "GitHub Project",
+    "company": "Independent Product",
+    "role": "Full-stack Developer",
+    "period": "2026",
+    "status": "active",
+    "featured": true,
+    "source": "github-private",
+    "repository": "https://github.com/rafaelnwitter/sales-dash",
+    "links": [
+      {
+        "label": "Live Demo",
+        "href": "https://sales-dash-beige.vercel.app"
+      }
+    ],
+    "summary": "Authenticated sales and e-commerce dashboard built with Next.js, Prisma, PostgreSQL and NextAuth.",
+    "description": [
+      "ShopFusion Sales Dashboard is a private full-stack product that combines an authenticated sales dashboard with an evolving e-commerce domain model. It includes roles, product catalog APIs, inventory relationships, cart and order modeling, and deployment-oriented Prisma workflows.",
+      "The project is built around a modern App Router stack with Next.js 16, React 19, Prisma 7, PostgreSQL, NextAuth v5, Tailwind CSS and Chart.js, with roadmap-driven delivery across catalog, checkout and admin workflows."
+    ],
+    "highlights": [
+      "Implemented authenticated dashboard foundations with role-aware access patterns",
+      "Modeled products, variants, inventory, carts, orders and payments with Prisma",
+      "Built product API foundations with filtering, pagination and roadmap-backed delivery phases"
+    ],
+    "stack": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+      "Chart.js"
+    ],
+    "media": {
+      "thumbnail": "/images/works/expertise_cover.png",
+      "gallery": [
+        "/images/works/expertise_shot.png",
+        "/images/works/expertise_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "lailla-english",
+    "title": "Talk2U Language Learning App",
+    "category": "Client Project",
+    "company": "Talk2U Academy",
+    "role": "Full-stack / Mobile Developer",
+    "period": "2024",
+    "status": "production",
+    "featured": true,
+    "source": "github-private",
+    "repository": "https://github.com/rafaelnwitter/Lailla-English",
+    "links": [
+      {
+        "label": "Production",
+        "href": "http://talk2u-academy.web.app/"
+      }
+    ],
+    "summary": "Language learning application for English, Spanish and French with gamified paths and Firebase-backed services.",
+    "description": [
+      "Talk2U Academy is a cross-platform language learning application with authentication, course management, achievement tracking, gamified paths and daily learning flows. The repository includes CI automation and Firebase Hosting deployment workflows.",
+      "The product combines React Native and Expo on the client side with Firebase services, Express.js, GraphQL/Apollo patterns and API integration for learning content and user progress."
+    ],
+    "highlights": [
+      "Built multi-platform learning flows for web and mobile users",
+      "Integrated Firebase services for authentication, hosting and backend data",
+      "Structured course, lesson, achievement and notification-oriented product modules"
+    ],
+    "stack": [
+      "React Native",
+      "Expo",
+      "Firebase",
+      "Express.js",
+      "GraphQL",
+      "Apollo Client",
+      "Axios",
+      "JavaScript"
+    ],
+    "media": {
+      "thumbnail": "/images/works/publya_cover.png",
+      "gallery": [
+        "/images/works/publya_shot.png",
+        "/images/works/publya_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "waba-api",
+    "title": "WhatsApp Business Webhook API",
+    "category": "Client / Automation Project",
+    "company": "WebWhisper / WhatsApp Automation",
+    "role": "Backend Developer",
+    "period": "2024",
+    "status": "private",
+    "featured": true,
+    "source": "github-private",
+    "repository": "https://github.com/rafaelnwitter/waba-api",
+    "links": [],
+    "summary": "Python webhook service for WhatsApp Business API chatbot automation.",
+    "description": [
+      "WABA API is a private Python service focused on WhatsApp Business API integration, webhook handling and chatbot response logic. It follows a lightweight Flask-style backend structure with command and response modules.",
+      "The project is useful as a backend automation case because it centers on inbound messaging, webhook processing, bot command routing and deployable Python service setup."
+    ],
+    "highlights": [
+      "Implemented webhook-oriented WhatsApp Business API integration patterns",
+      "Structured chatbot command and response logic for maintainable automation",
+      "Prepared Python service setup with virtual environment and dependency workflow"
+    ],
+    "stack": [
+      "Python",
+      "Flask",
+      "WhatsApp Business API",
+      "Webhooks",
+      "Chatbot Automation"
+    ],
+    "media": {
+      "thumbnail": "/images/works/nexxera_cover.png",
+      "gallery": [
+        "/images/works/nexxera_shot.png",
+        "/images/works/nexxera_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "roi-manager",
+    "title": "ROI Manager",
+    "category": "GitHub Project",
+    "company": "Independent Analytics Tool",
+    "role": "Frontend / Product Developer",
+    "period": "2024",
+    "status": "deployed",
+    "featured": true,
+    "source": "github-private",
+    "repository": "https://github.com/rafaelnwitter/roi-manager",
+    "links": [
+      {
+        "label": "Live Demo",
+        "href": "https://roi-manager.vercel.app"
+      }
+    ],
+    "summary": "Deployed ROI management interface focused on tracking return, campaign performance and business metrics.",
+    "description": [
+      "ROI Manager is a private deployed web application for organizing and visualizing return-on-investment workflows. The repository is a compact product case for dashboard UX, metric-oriented screens and Vercel deployment.",
+      "The current public README is still scaffold-level, so this entry intentionally keeps implementation claims conservative until the source is reviewed locally or cloned into the workspace."
+    ],
+    "highlights": [
+      "Shipped a deployed business-metrics interface on Vercel",
+      "Built a portfolio-ready analytics product surface",
+      "Kept private repository metadata linked for authenticated review"
+    ],
+    "stack": [
+      "JavaScript",
+      "Next.js",
+      "Vercel",
+      "Dashboard UI",
+      "Analytics"
+    ],
+    "media": {
+      "thumbnail": "/images/works/keeps_cover.png",
+      "gallery": [
+        "/images/works/keeps_shot.png",
+        "/images/works/keeps_cover.png"
+      ],
+      "video": null
+    }
+  },
+  {
+    "id": "quality-asm-commerce",
+    "title": "ASM Commerce Platform",
+    "category": "Professional Case Study",
+    "company": "Quality Digital / ASM",
+    "role": "E-commerce Integration Developer",
+    "period": "2025-2026",
+    "status": "private-client-work",
+    "featured": true,
+    "source": "local-private-clone",
+    "repository": null,
+    "links": [],
+    "summary": "Private MedusaJS commerce platform split across backend, storefront and architecture/regionalization proof-of-concepts.",
+    "description": [
+      "The ASM commerce work is represented locally by private Quality Digital repositories for a MedusaJS backend, a Next.js storefront and architecture/regionalization proof-of-concepts. The backend uses Medusa v2 with TypeScript, PostgreSQL-oriented commerce modules, Algolia search integration and integration/unit test scripts.",
+      "The frontend is based on the Medusa Next.js starter with Next.js 15, React, Tailwind CSS and storefront flows for product discovery, cart, checkout and customer account areas. The local clone history confirms Quality Digital remotes and corporate contributors while Rafael commits appear under personal e-mail aliases."
+    ],
+    "highlights": [
+      "Worked across Medusa v2 backend and Next.js storefront architecture",
+      "Integrated Algolia-oriented catalog search and commerce backend modules",
+      "Validated regionalization and architecture proof-of-concepts in private Quality Digital repositories"
+    ],
+    "stack": [
+      "MedusaJS",
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Algolia",
+      "PostgreSQL",
+      "Docker",
+      "Jest",
+      "Tailwind CSS"
+    ],
+    "media": {
+      "thumbnail": "/images/works/expertise_cover.png",
+      "gallery": [
+        "/images/works/expertise_shot.png",
+        "/images/works/keeps_shot.png"
+      ],
+      "video": null
+    }
+  },
+  {
     "id": "expertise",
     "title": "Cloud Integration Platform",
     "category": "Professional Case Study",
@@ -7,7 +222,7 @@
     "role": "Full-stack Developer Jr.",
     "period": "2021",
     "status": "case-study",
-    "featured": true,
+    "featured": false,
     "source": "professional",
     "repository": null,
     "links": [],
@@ -49,7 +264,7 @@
     "role": "Backend Developer",
     "period": "2022",
     "status": "case-study",
-    "featured": true,
+    "featured": false,
     "source": "professional",
     "repository": null,
     "links": [],
@@ -90,7 +305,7 @@
     "role": "Full-stack Developer Intern",
     "period": "2021",
     "status": "case-study",
-    "featured": true,
+    "featured": false,
     "source": "professional",
     "repository": null,
     "links": [],
@@ -128,7 +343,7 @@
     "role": "Technical Support Intern",
     "period": "2020",
     "status": "case-study",
-    "featured": true,
+    "featured": false,
     "source": "professional",
     "repository": null,
     "links": [],
