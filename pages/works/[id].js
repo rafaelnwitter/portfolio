@@ -63,7 +63,11 @@ const WorkDetail = ({ work }) => {
   ]
 
   return (
-    <Layout title={work.title}>
+    <Layout
+      title={work.title}
+      description={work.summary}
+      image={work.thumbnail}
+    >
       <Container>
         {/* Breadcrumb */}
         <Box mb={4}>
@@ -188,12 +192,7 @@ const WorkDetail = ({ work }) => {
           </Heading>
           {work.video ? (
             <AspectRatio ratio={16 / 9} my={4}>
-              <Box
-                as="video"
-                src={work.video}
-                controls
-                borderRadius="lg"
-              />
+              <Box as="video" src={work.video} controls borderRadius="lg" />
             </AspectRatio>
           ) : (
             <VideoPlaceholder />
