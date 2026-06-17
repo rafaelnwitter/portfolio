@@ -18,7 +18,7 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import WorkCard from '../components/work-card'
 import { featuredWorks as works } from '../lib/works'
-import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import { IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5'
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -37,8 +37,8 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Hey, I&apos;m a backend developer and experimental front-end tinkerer
-        from Brazil!
+        Software engineer focused on backend, production systems and
+        cloud-native integrations from Brazil.
       </Box>
 
       <Box display={{ md: 'flex' }}>
@@ -46,7 +46,7 @@ const Home = () => (
           <Heading as="h2" variant="page-title">
             Rafael Nilson Witt
           </Heading>
-          <p>@rafaelnwitter ( Developer / Player / Tech Lover )</p>
+          <p>@rafaelnwitter ( Software Engineer / Backend / Infrastructure )</p>
         </Box>
         <Box
           flexShrink={0}
@@ -80,11 +80,11 @@ const Home = () => (
           Intro
         </Heading>
         <Paragraph>
-          I&apos;m a back-end developer with hands-on experience building APIs,
-          event-driven services and data-heavy applications across the Python
-          and Node.js ecosystems. I enjoy turning messy requirements into clean,
-          reliable systems &mdash; and occasionally jumping to the front-end to
-          see ideas come to life.
+          I&apos;m a software engineer with 3+ years of experience building and
+          operating backend services, APIs and cloud-native systems. My recent
+          work focuses on Node.js, TypeScript, Python, AWS serverless
+          infrastructure, event-driven integrations, automated testing and
+          production reliability.
         </Paragraph>
         <Box align="center" my={4}>
           <Button
@@ -105,8 +105,9 @@ const Home = () => (
             Works
           </Heading>
           <Paragraph>
-            A selection of projects from my professional journey. Open any card
-            to read a deeper summary and browse photos and videos.
+            A selection of projects from professional work, freelance delivery
+            and private GitHub repositories. Open any card to read a deeper
+            technical summary.
           </Paragraph>
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mt={5}>
             {works.map(work => (
@@ -148,7 +149,9 @@ const Home = () => (
           <br />
           <BioSection>
             <BioYear>2021</BioYear>
-            <BioSec>Full-stack Developer Jr. at Expertise Solutions</BioSec>{' '}
+            <BioSec>
+              Full-stack Developer Jr. at Expertise Solutions
+            </BioSec>{' '}
             <br />
             <BioSpec>
               Worked with: NodeJS, NestJS, TypeScript, React, GraphQL,
@@ -166,8 +169,39 @@ const Home = () => (
           </BioSection>
           <br />
           <BioSection>
+            <BioYear>2024</BioYear>
+            <BioSec>Freelance Full-stack Engineer at 99Freelas</BioSec> <br />
+            <BioSpec>
+              Worked with: SaaS platforms, API integrations, Meta Graph API,
+              Google Ads API, JWT, Swagger, OAuth2
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2025</BioYear>
+            <BioSec>Full Stack Engineer at Quality Digital</BioSec> <br />
+            <BioSpec>
+              Worked with: Node.js 22, TypeScript, AWS Lambda, DynamoDB, SQS,
+              SNS, EventBridge, VTEX, Jest, Datadog
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
+            <BioYear>2025</BioYear>
+            <BioSec>
+              Solution Architect POCs for Brightdome / Fluidra
+            </BioSec>{' '}
+            <br />
+            <BioSpec>
+              Worked with: Alokai, AEM Headless, MedusaJS, Stripe, Algolia,
+              regionalization, headless commerce architecture
+            </BioSpec>
+          </BioSection>
+          <br />
+          <BioSection>
             <BioYear>Now</BioYear>
-            Deepening Node.js and NestJS (TypeScript) for backend development
+            Building production-ready backend and infrastructure systems with
+            Node.js, TypeScript, Python and AWS
           </BioSection>
         </Box>
       </Section>
