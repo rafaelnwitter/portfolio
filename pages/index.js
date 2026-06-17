@@ -3,10 +3,13 @@ import {
   Container,
   Heading,
   Box,
+  Badge,
   Button,
   List,
   ListItem,
   SimpleGrid,
+  Stack,
+  Text,
   useColorModeValue,
   chakra
 } from '@chakra-ui/react'
@@ -21,8 +24,50 @@ import { featuredWorks as works } from '../lib/works'
 import { IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5'
 
 const ProfileImage = chakra(Image, {
-  shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
+  shouldForwardProp: prop =>
+    ['width', 'height', 'src', 'alt', 'priority', 'sizes', 'style'].includes(
+      prop
+    )
 })
+
+const focusItems = [
+  {
+    label: 'Primary work',
+    value: 'Backend APIs, AWS serverless and production systems'
+  },
+  {
+    label: 'Project sources',
+    value: 'GitHub repositories, private client work and local case evidence'
+  },
+  {
+    label: 'Strong cases',
+    value:
+      'Focused shortlist across dashboards, commerce, mobile and automation'
+  }
+]
+
+const FocusCard = ({ label, value }) => {
+  const bg = useColorModeValue('whiteAlpha.600', 'whiteAlpha.100')
+  const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
+  const mutedColor = useColorModeValue('gray.600', 'gray.400')
+
+  return (
+    <Box
+      bg={bg}
+      borderWidth={1}
+      borderColor={borderColor}
+      borderRadius="md"
+      p={3}
+    >
+      <Text fontSize={12} textTransform="uppercase" color={mutedColor}>
+        {label}
+      </Text>
+      <Text mt={1} fontWeight="semibold" lineHeight="short">
+        {value}
+      </Text>
+    </Box>
+  )
+}
 
 const Home = () => (
   <Layout>
@@ -66,10 +111,12 @@ const Home = () => (
           >
             <ProfileImage
               src="/images/rafael.png"
-              alt="Profile image"
-              borderRadius="full"
+              alt="Rafael Nilson Witt profile photo"
               width={100}
               height={100}
+              priority
+              sizes="100px"
+              style={{ objectFit: 'cover' }}
             />
           </Box>
         </Box>
@@ -86,6 +133,12 @@ const Home = () => (
           infrastructure, event-driven integrations, automated testing and
           production reliability.
         </Paragraph>
+        <SimpleGrid columns={{ base: 1, md: 3 }} gap={3} my={5}>
+          {focusItems.map(item => (
+            <FocusCard key={item.label} {...item} />
+          ))}
+        </SimpleGrid>
+
         <Box align="center" my={4}>
           <Button
             as={Link}
@@ -105,10 +158,17 @@ const Home = () => (
             Works
           </Heading>
           <Paragraph>
-            A selection of projects from professional work, freelance delivery
-            and private GitHub repositories. Open any card to read a deeper
-            technical summary.
+            A GitHub-first shortlist of strong projects from professional work,
+            freelance delivery and private repositories. Each case highlights
+            the technical context, stack and implementation decisions behind the
+            work.
           </Paragraph>
+          <Stack direction="row" wrap="wrap" spacing={0} gap={2} mt={3}>
+            <Badge colorScheme="teal">5 featured case studies</Badge>
+            <Badge colorScheme="gray">Backend</Badge>
+            <Badge colorScheme="gray">Cloud integrations</Badge>
+            <Badge colorScheme="gray">Commerce</Badge>
+          </Stack>
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mt={5}>
             {works.map(work => (
               <WorkCard key={work.id} work={work} />
