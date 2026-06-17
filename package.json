@@ -9,7 +9,8 @@
     "start": "next start",
     "prettier": "prettier --write .",
     "lint": "eslint .",
-    "validate:projects": "node scripts/validate-project-data.mjs"
+    "validate:projects": "node scripts/validate-project-data.mjs",
+    "quality": "npm run validate:projects && npm run lint && npm run build"
   },
   "keywords": [],
   "author": "Rafael Witt<rafawitt@hotmail.com>",
